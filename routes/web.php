@@ -22,11 +22,18 @@ Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/login', function () {
-        return view('');
-    })->name('user.login');
+    Route::get('home', function () {
+        return 'home view';
+    });
 });
 
 Route::middleware('guest')->group(function () {
 
+    Route::get('/login', function () {
+        return view('admin.auth.login');
+    })->name('user.login');
+
+    Route::get('/register', function () {
+        return view('admin.auth.register');
+    })->name('user.login');
 });
