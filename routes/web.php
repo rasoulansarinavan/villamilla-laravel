@@ -35,5 +35,5 @@ Route::middleware('guest')->group(function () {
 
     Route::get('/register', function () {
         return view('admin.auth.register');
-    })->name('user.login');
+    })->name('user.register');
 });
