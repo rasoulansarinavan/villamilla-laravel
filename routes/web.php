@@ -19,4 +19,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/login', function () {
+        return view('');
+    })->name('user.login');
+});
+
+Route::middleware('guest')->group(function () {
+
+});
