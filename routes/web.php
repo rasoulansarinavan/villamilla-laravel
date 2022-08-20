@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,10 +30,10 @@ Route::middleware('auth')->group(function () {
 Route::middleware('guest')->group(function () {
 
     Route::get('/login', function () {
-        return view('client.auth.login');
+        return view('admin.auth.login');
     })->name('user.login');
 
     Route::get('/register', function () {
-        return view('client.auth.register');
-    })->name('user.register');
+        return view('admin.auth.register');
+    })->name('user.login');
 });
