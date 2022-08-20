@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Client\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,11 +31,12 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('guest')->group(function () {
 
-    Route::get('/login', function () {
-        return view('client.auth.login');
-    })->name('user.login');
+    Route::get('/', function () {
+        return 'home view';
+    });
 
-    Route::get('/register', function () {
-        return view('client.auth.register');
-    })->name('user.register');
+    Route::get('/login', [UserController::class, 'LoginForm'])->name('user.login');
+    Route::get('/register', [UserController::class, 'RegisterForm'])->name('user.register');
+    Route::get('/register/store', [UserController::class, 'RegisterStore'])->name('user.store');
+
 });
