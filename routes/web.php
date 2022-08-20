@@ -23,20 +23,20 @@ Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth:web','PreventBackHistory'])->group(function () {
     Route::get('home', function () {
         return 'home view';
     });
 });
 
-Route::middleware('guest')->group(function () {
+Route::middleware(['guest:web','PreventBackHistory'])->group(function () {
 
     Route::get('/', function () {
         return 'home view';
-    });
+    })->name('user.home');
 
     Route::get('/login', [UserController::class, 'LoginForm'])->name('user.login');
+    Route::get('/login/store', [UserController::class, 'LoginStore'])->name('user.check');
     Route::get('/register', [UserController::class, 'RegisterForm'])->name('user.register');
-    Route::get('/register/store', [UserController::class, 'RegisterStore'])->name('user.store');
-
+    Route::post('/register/store', [UserController::class, 'RegisterStore'])->name('user.store');
 });
