@@ -41,8 +41,8 @@ class UserController extends Controller
     public function LoginStore(Request $request)
     {
         $user = $request->only('email', 'password');
-        if (Auth::attempt($user)) {
-          return  redirect()->route('user.home');
+        if (Auth::guard('web')->attempt($user)) {
+            return redirect()->route('user.home');
         } else {
             return redirect()->back()->with('error', 'نام کاربری یا رمز عبور اشتباه است');
         }
