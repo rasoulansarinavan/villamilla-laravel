@@ -51,7 +51,7 @@
                             <div class="card mb-0">
                                 <div class="card-body" style="padding: 40px; direction: rtl;">
                                     <h3 style="color: darkred;">ثبت نام در ویلامیلا</h3>
-                                    <form id="register-form" class="row mb-0" action="{{route('user.store')}}">
+                                    <form id="register-form" class="row mb-0" action="{{route('user.store')}}" method="post">
                                         @csrf
                                         <div class="col-12 form-group">
                                             <label for="register-form-name">نام و نام خانوادگی</label>
