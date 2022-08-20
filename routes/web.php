@@ -31,10 +31,10 @@ Route::middleware('auth')->group(function () {
 Route::middleware('guest')->group(function () {
 
     Route::get('/login', function () {
-        return view('admin.auth.login');
+        return view('client.auth.login');
     })->name('user.login');
 
     Route::get('/register', function () {
-        return view('admin.auth.register');
-    })->name('user.login');
+        return view('client.auth.register');
+    })->name('user.register');
 });
