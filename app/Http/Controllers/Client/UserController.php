@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -35,5 +36,15 @@ class UserController extends Controller
         auth()->login($user);
 
         return redirect('/');
+    }
+
+    public function LoginStore(Request $request)
+    {
+        $user = $request->only('email', 'password');
+        if (Auth::attempt($user)) {
+          return  redirect()->route('user.home');
+        } else {
+            return redirect()->back()->with('error', 'نام کاربری یا رمز عبور اشتباه است');
+        }
     }
 }
