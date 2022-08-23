@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\EnvironmentController;
 use App\Http\Controllers\Client\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +34,7 @@ Route::middleware(['auth:web', 'PreventBackHistory'])->group(function () {
 Route::middleware(['guest:web', 'PreventBackHistory'])->group(function () {
 
     Route::get('/', function () {
-        return 'home view';
+        return view('client/index');
     })->name('user.home');
 
     Route::get('/login', [UserController::class, 'LoginForm'])->name('user.login');
@@ -48,6 +49,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/home', function () {
             return view('admin.home');
         })->name('home');
+        Route::get('environments',[EnvironmentController::class,'index'])->name('environments.index');
+        Route::post('environments/store',[EnvironmentController::class,'store'])->name('environments.store');
+        Route::get('environments/edit/{environment}',[EnvironmentController::class,'edit'])->name('environments.edit');
+        Route::post('environments/update/{environment}',[EnvironmentController::class,'update'])->name('environments.update');
+        Route::delete('environments/destroy/{environment}',[EnvironmentController::class,'destroy'])->name('environments.destroy');
     });
 
     Route::middleware(['guest:admin', 'PreventBackHistory'])->group(function () {
