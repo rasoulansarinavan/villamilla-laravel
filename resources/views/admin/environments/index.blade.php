@@ -8,6 +8,11 @@
             <div class="content-body">
                 <!-- Zero configuration table -->
                 <section id="basic-datatable">
+                    @if(session('success'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{session('success')}}
+                        </div>
+                    @endif
                     <div class="row">
                         <div class="col-8">
                             <div class="card">
@@ -40,7 +45,13 @@
                                                         <td>
                                                             <a class="badge badge-primary"
                                                                href="{{route('admin.environments.edit',$environment->id)}}">ویرایش</a>
-                                                            <a class="badge badge-danger" href="">حذف</a>
+                                                            <form
+                                                                action="{{route('admin.environments.destroy',$environment->id)}}"
+                                                                method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="badge badge-danger">حذف</button>
+                                                            </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach
