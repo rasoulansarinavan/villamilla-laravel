@@ -23,6 +23,8 @@
 <script src="/admin/app-assets/js/scripts/pages/dashboard-analytics.js"></script>
 <!-- END: Page JS-->
 
+@yield('scripts')
+
 </body>
 <!-- END: Body-->
 

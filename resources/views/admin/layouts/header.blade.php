@@ -28,6 +28,8 @@
     <link rel="stylesheet" type="text/css" href="/admin/app-assets/css-rtl/themes/dark-layout.css">
     <link rel="stylesheet" type="text/css" href="/admin/app-assets/css-rtl/themes/semi-dark-layout.css">
     <link rel="stylesheet" type="text/css" href="/admin/app-assets/css-rtl/custom-rtl.css">
+    <link rel="stylesheet" type="text/css" href="/admin/app-assets/vendors/css/tables/datatable/datatables.min.css">
+
     <!-- END: Theme CSS-->
 
     <!-- BEGIN: Page CSS-->
