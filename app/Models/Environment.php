@@ -23,6 +23,7 @@ class Environment extends Authenticatable
         'name_en',
         'slug_en',
         'image',
+//        'image',
     ];
 
     /**
