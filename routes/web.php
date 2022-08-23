@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EnvironmentController;
 use App\Http\Controllers\Client\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -49,11 +50,23 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/home', function () {
             return view('admin.home');
         })->name('home');
-        Route::get('environments',[EnvironmentController::class,'index'])->name('environments.index');
-        Route::post('environments/store',[EnvironmentController::class,'store'])->name('environments.store');
-        Route::get('environments/edit/{environment}',[EnvironmentController::class,'edit'])->name('environments.edit');
-        Route::post('environments/update/{environment}',[EnvironmentController::class,'update'])->name('environments.update');
-        Route::delete('environments/destroy/{environment}',[EnvironmentController::class,'destroy'])->name('environments.destroy');
+
+        Route::prefix('environments')->name('environments.')->group(function () {
+
+            Route::get('', [EnvironmentController::class, 'index'])->name('index');
+            Route::post('/store', [EnvironmentController::class, 'store'])->name('store');
+            Route::get('/edit/{environment}', [EnvironmentController::class, 'edit'])->name('edit');
+            Route::post('/update/{environment}', [EnvironmentController::class, 'update'])->name('update');
+            Route::delete('/destroy/{environment}', [EnvironmentController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('categories')->name('categories.')->group(function () {
+
+            Route::get('', [CategoryController::class, 'index'])->name('index');
+            Route::post('/store', [CategoryController::class, 'store'])->name('store');
+            Route::get('/edit/{environment}', [CategoryController::class, 'edit'])->name('edit');
+            Route::post('/update/{environment}', [CategoryController::class, 'update'])->name('update');
+            Route::delete('/destroy/{environment}', [CategoryController::class, 'destroy'])->name('destroy');
+        });
     });
 
     Route::middleware(['guest:admin', 'PreventBackHistory'])->group(function () {
