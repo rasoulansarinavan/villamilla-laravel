@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryStoreRequest;
 use App\Models\Category;
+use App\Models\Environment;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -16,9 +17,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
+
+        $environments = Environment::query()->latest()->get();
         $categories = Category::query()->latest()->get();
         return view('admin.categories.index', [
             'categories' => $categories,
+            'environments' => $environments,
         ]);
     }
 
@@ -47,13 +51,9 @@ class CategoryController extends Controller
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
 
-    public function create()
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
