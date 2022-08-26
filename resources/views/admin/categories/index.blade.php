@@ -37,7 +37,7 @@
                                                         <td>{{$category->name_fa}}</td>
                                                         <td>{{$category->name_en}}</td>
                                                         <td>
-                                                            {{optional($category->parent)->name_fa}}
+                                                            {{optional($category->environment)->name_fa  ?? 'None' }}
                                                         </td>
                                                         <td>
                                                             <a class="badge badge-primary"
@@ -102,9 +102,9 @@
                                                                 <option selected disabled value="">دسته والد را انتخاب
                                                                     کنید
                                                                 </option>
-                                                                @foreach($categories as $category)
+                                                                @foreach($environments as $environment)
                                                                     <option
-                                                                        value="{{$category->id}}">{{$category->name_fa}}</option>
+                                                                        value="{{$environment->id}}">{{$environment->name_fa}}</option>
                                                                 @endforeach
                                                             </select>
                                                             <span
