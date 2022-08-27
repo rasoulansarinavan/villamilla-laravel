@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryStoreRequest;
+use App\Http\Requests\CategoryUpdateRequest;
 use App\Models\Category;
 use App\Models\Environment;
 use Illuminate\Http\Request;
@@ -44,7 +45,7 @@ class CategoryController extends Controller
             'slug_fa' => str_replace(' ', '_', $name_fa),
             'category_id' => $category_id,
         ]);
-        return redirect()->back()->with('success', 'دسته بندی با موفقیت افزوده شد');
+        return redirect()->back()->with('success', 'اقامتگاه با موفقیت افزوده شد');
     }
 
     /**
@@ -70,11 +71,17 @@ class CategoryController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \App\Models\Category $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Category $category)
     {
-        //
+        $environments=Environment::all();
+        $categories = Category::all();
+        return view('admin.categories.edit', [
+            'category' => $category,
+            'categories' => $categories,
+            'environments'=>$environments
+        ]);
     }
 
     /**
@@ -82,21 +89,35 @@ class CategoryController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Category $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryUpdateRequest $request, Category $category)
     {
-        //
+        {
+            $name_fa = $request->get('name_fa');
+            $name_en = $request->get('name_en');
+            $category_id = $request->get('category_id');
+
+            $category->update([
+                'name_fa' => $name_fa,
+                'name_en' => $name_en,
+                'slug_en' => strtolower(str_replace(' ', '_', $name_en)),
+                'slug_fa' => str_replace(' ', '_', $name_fa),
+                'category_id' => $category_id,
+            ]);
+            return redirect()->route('admin.categories.index')->with('success', 'اقامتگاه با موفقیت آپدیت شد');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Category $category
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->back()->with('success','اقامتگاه با موفقیت حذف شد');
     }
 }
