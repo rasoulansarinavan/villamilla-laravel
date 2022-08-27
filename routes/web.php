@@ -63,9 +63,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
             Route::get('', [CategoryController::class, 'index'])->name('index');
             Route::post('/store', [CategoryController::class, 'store'])->name('store');
-            Route::get('/edit/{environment}', [CategoryController::class, 'edit'])->name('edit');
-            Route::post('/update/{environment}', [CategoryController::class, 'update'])->name('update');
-            Route::delete('/destroy/{environment}', [CategoryController::class, 'destroy'])->name('destroy');
+            Route::get('/edit/{category}', [CategoryController::class, 'edit'])->name('edit');
+            Route::post('/update/{category}', [CategoryController::class, 'update'])->name('update');
+            Route::delete('/destroy/{category}', [CategoryController::class, 'destroy'])->name('destroy');
         });
     });
 
