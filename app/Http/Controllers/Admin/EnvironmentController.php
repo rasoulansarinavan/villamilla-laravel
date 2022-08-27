@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EnvironmentStoreRequest;
 use App\Http\Requests\EnvironmentUpdateRequest;
+use App\Models\Category;
 use App\Models\Environment;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
@@ -78,6 +79,7 @@ class EnvironmentController extends Controller
      */
     public function edit(Environment $environment): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
+
         return view('admin.environments.edit', [
             'environment' => $environment,
         ]);
