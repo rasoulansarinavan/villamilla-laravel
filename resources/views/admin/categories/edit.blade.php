@@ -49,26 +49,26 @@
                                                                 class="text-danger">@error('name_en'){{$message}}@enderror</span>
                                                         </div>
                                                     </div>
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <label for="parent">نوع اقامتگاه</label>
-                                                            <select class="select2 form-control"
-                                                                    name="category_id" id="parent">
-                                                                <option selected disabled value="">دسته والد را انتخاب
-                                                                    کنید
-                                                                </option>
-                                                                @foreach($environments as $environment)
-                                                                    <option
-                                                                        @if($category->id==$environment->id)
-                                                                        selected="selected"
-                                                                        @endif
-                                                                        value="{{$environment->id}}">{{$environment->name_fa}}</option>
-                                                                @endforeach
-                                                            </select>
-                                                            <span
-                                                                class="text-danger">@error('name_en'){{$message}}@enderror</span>
-                                                        </div>
-                                                    </div>
+{{--                                                    <div class="col-12">--}}
+{{--                                                        <div class="form-group">--}}
+{{--                                                            <label for="parent">نوع اقامتگاه</label>--}}
+{{--                                                            <select class="select2 form-control"--}}
+{{--                                                                    name="environment_id" id="parent">--}}
+{{--                                                                <option selected disabled value="">دسته والد را انتخاب--}}
+{{--                                                                    کنید--}}
+{{--                                                                </option>--}}
+{{--                                                                @foreach($environments as $environment)--}}
+{{--                                                                    <option--}}
+{{--                                                                        @if($category->environment_id==$environment->id)--}}
+{{--                                                                        selected="selected"--}}
+{{--                                                                        @endif--}}
+{{--                                                                        value="{{$environment->id}}">{{$environment->name_fa}}</option>--}}
+{{--                                                                @endforeach--}}
+{{--                                                            </select>--}}
+{{--                                                            <span--}}
+{{--                                                                class="text-danger">@error('name_en'){{$message}}@enderror</span>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
                                                     <div class="col-12 d-flex justify-content-end">
                                                         <button type="submit" class="btn btn-primary mr-1 mb-1">
                                                             ثبت
