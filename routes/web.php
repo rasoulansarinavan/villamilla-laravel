@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\EnvironmentController;
+use App\Http\Controllers\Admin\ResidenceController;
 use App\Http\Controllers\Client\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -66,6 +67,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/edit/{category}', [CategoryController::class, 'edit'])->name('edit');
             Route::post('/update/{category}', [CategoryController::class, 'update'])->name('update');
             Route::delete('/destroy/{category}', [CategoryController::class, 'destroy'])->name('destroy');
+        });
+        Route::prefix('residences')->name('residences.')->group(function () {
+
+            Route::get('', [ResidenceController::class, 'index'])->name('index');
+            Route::get('/create', [ResidenceController::class, 'create'])->name('create');
+            Route::post('/store', [ResidenceController::class, 'store'])->name('store');
+            Route::get('/edit/{residence}', [ResidenceController::class, 'edit'])->name('edit');
+            Route::post('/update/{residence}', [ResidenceController::class, 'update'])->name('update');
+            Route::delete('/destroy/{residence}', [ResidenceController::class, 'destroy'])->name('destroy');
         });
     });
 
