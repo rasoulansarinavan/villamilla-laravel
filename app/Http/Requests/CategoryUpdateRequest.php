@@ -26,7 +26,7 @@ class CategoryUpdateRequest extends FormRequest
         return [
             'name_fa' => 'required',
             'name_en' => 'required',
-            'category_id' => 'integer|exists:categories,id',
+            'environment_id' => 'integer|exists:categories,environment_id',
         ];
     }
 
@@ -35,7 +35,7 @@ class CategoryUpdateRequest extends FormRequest
         return [
             'name_fa.required' => 'نوع اقامتگاه الزامی است',
             'name_en.required' => 'نوع اقامتگاه الزامی است',
-            'category_id.exists'=>'دسته والد وجود ندارد',
+            'environment_id.exists'=>'دسته والد وجود ندارد',
         ];
     }
 }
