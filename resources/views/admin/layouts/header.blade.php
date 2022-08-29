@@ -40,6 +40,7 @@
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="/admin/assets/css/style-rtl.css">
     <!-- END: Custom CSS-->
+    <script src="https://cdn.ckeditor.com/4.19.1/full-all/ckeditor.js"></script>
 
 </head>
 <!-- END: Head-->

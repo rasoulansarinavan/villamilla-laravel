@@ -36,11 +36,34 @@
                 </ul>
             </li>
             <li class=" navigation-header"><span>Apps</span>
-            <li class=" nav-item {{$route=='admin.environments.index'?'open':''}}"><a href="#"><i class="menu-livicon" data-icon="notebook"></i><span class="menu-title"
-                                                                                                     data-i18n="Invoice">انواع محیط های گردشگری</span></a>
+            <li class=" nav-item {{$route=='admin.environments.index'?'open':''}}"><a href="#"><i class="menu-livicon"
+                                                                                                  data-icon="notebook"></i><span
+                        class="menu-title"
+                        data-i18n="Invoice">انواع محیط های گردشگری</span></a>
                 <ul class="menu-content">
-                    <li class="{{$route=='admin.environments.index'?'active':''}}"><a href="{{route('admin.environments.index')}}"><i class="bx bx-right-arrow-alt"></i><span
+                    <li class="{{$route=='admin.environments.index'?'active':''}}"><a
+                            href="{{route('admin.environments.index')}}"><i class="bx bx-right-arrow-alt"></i><span
                                 class="menu-item" data-i18n="Invoice List">لیست محیط های گردشگری</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" nav-item {{$route=='admin.categories.index'?'open':''}}"><a href="#"><i class="menu-livicon" data-icon="notebook"></i><span class="menu-title" data-i18n="Invoice">دسته بندی اقامتگاها</span></a>
+                <ul class="menu-content">
+                    <li class="{{$route=='admin.categories.index'?'active':''}}"><a
+                            href="{{route('admin.categories.index')}}"><i class="bx bx-right-arrow-alt"></i><span
+                                class="menu-item" data-i18n="Invoice List">لیست انواع اقامتگاها</span></a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" nav-item {{$route=='admin.residences.index'?'open':''}}"><a href="#"><i class="menu-livicon" data-icon="notebook"></i><span class="menu-title" data-i18n="Invoice">اقامتگاها</span></a>
+                <ul class="menu-content">
+                    <li class="{{$route=='admin.residences.index'?'active':''}}"><a
+                            href="{{route('admin.residences.index')}}"><i class="bx bx-right-arrow-alt"></i><span
+                                class="menu-item" data-i18n="Invoice List">لیست اقامتگاها</span></a>
+                    </li>
+                    <li class="{{$route=='admin.residences.create'?'active':''}}"><a
+                            href="{{route('admin.residences.create')}}"><i class="bx bx-right-arrow-alt"></i><span
+                                class="menu-item" data-i18n="Invoice List">افزودن اقامتگاه جدید</span></a>
                     </li>
                 </ul>
             </li>

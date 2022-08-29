@@ -1,4 +1,3 @@
-
 <!-- BEGIN: Vendor JS-->
 <script src="/admin/app-assets/vendors/js/vendors.min.js"></script>
 <script src="/admin/app-assets/fonts/LivIconsEvo/js/LivIconsEvo.tools.js"></script>
@@ -22,7 +21,12 @@
 <!-- BEGIN: Page JS-->
 <script src="/admin/app-assets/js/scripts/pages/dashboard-analytics.js"></script>
 <!-- END: Page JS-->
-
+<script>
+    CKEDITOR.replace('editor1');
+</script>
+<script>
+    CKEDITOR.replace('editor2');
+</script>
 @yield('scripts')
 
 </body>
