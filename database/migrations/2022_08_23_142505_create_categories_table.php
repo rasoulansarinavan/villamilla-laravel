@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string('name_en')->unique();
             $table->string('slug_fa')->unique();
             $table->string('slug_en')->unique();
-            $table->foreignId('category_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('environment_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
