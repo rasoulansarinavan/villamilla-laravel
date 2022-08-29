@@ -13,6 +13,6 @@ class Environment extends Model
 
     public function parent()
     {
-        return $this->belongsTo(Category::class,'category_id');
+        return $this->hasMany(Category::class,'environment_id');
     }
 }

@@ -13,6 +13,7 @@ class Category extends Model
 
     public function environment()
     {
-        return $this->belongsTo(Environment::class,'id');
+        return $this->belongsTo(Environment::class);
     }
+
 }
