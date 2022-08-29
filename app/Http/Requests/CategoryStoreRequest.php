@@ -26,7 +26,7 @@ class CategoryStoreRequest extends FormRequest
         return [
             'name_fa' => 'required|unique:categories',
             'name_en' => 'required|unique:categories',
-            'category_id' => 'integer|exists:categories,id',
+            'environment_id' => 'integer|exists:environments,id',
         ];
     }
 
@@ -37,7 +37,7 @@ class CategoryStoreRequest extends FormRequest
             'name_fa.required' => 'نوع اقامتگاه الزامی است',
             'name_en.unique' => 'نوع اقامتگاه تکراری است',
             'name_en.required' => 'نوع اقامتگاه الزامی است',
-            'category_id.exists'=>'دسته والد وجود ندارد',
+            'environment_id.exists'=>'دسته والد وجود ندارد',
         ];
     }
 }
