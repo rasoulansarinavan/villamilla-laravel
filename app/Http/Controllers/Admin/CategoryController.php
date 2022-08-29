@@ -36,14 +36,14 @@ class CategoryController extends Controller
     {
         $name_fa = $request->get('name_fa');
         $name_en = $request->get('name_en');
-        $category_id = $request->get('category_id');
+        $environment_id = $request->get('environment_id');
 
         Category::query()->create([
             'name_fa' => $name_fa,
             'name_en' => $name_en,
             'slug_en' => strtolower(str_replace(' ', '_', $name_en)),
             'slug_fa' => str_replace(' ', '_', $name_fa),
-            'category_id' => $category_id,
+            'environment_id' => $environment_id,
         ]);
         return redirect()->back()->with('success', 'اقامتگاه با موفقیت افزوده شد');
     }
@@ -75,12 +75,12 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        $environments=Environment::all();
-        $categories = Category::all();
+        $environments = Environment::query()->latest()->get();
+        $categories = Category::query()->latest()->get();
         return view('admin.categories.edit', [
             'category' => $category,
             'categories' => $categories,
-            'environments'=>$environments
+            'environments' => $environments
         ]);
     }
 
@@ -96,14 +96,14 @@ class CategoryController extends Controller
         {
             $name_fa = $request->get('name_fa');
             $name_en = $request->get('name_en');
-            $category_id = $request->get('category_id');
+            $environment_id = $request->get('environment_id');
 
             $category->update([
                 'name_fa' => $name_fa,
                 'name_en' => $name_en,
                 'slug_en' => strtolower(str_replace(' ', '_', $name_en)),
                 'slug_fa' => str_replace(' ', '_', $name_fa),
-                'category_id' => $category_id,
+                'environment_id' => $environment_id,
             ]);
             return redirect()->route('admin.categories.index')->with('success', 'اقامتگاه با موفقیت آپدیت شد');
         }
@@ -118,6 +118,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->back()->with('success','اقامتگاه با موفقیت حذف شد');
+        return redirect()->back()->with('success', 'اقامتگاه با موفقیت حذف شد');
     }
 }
