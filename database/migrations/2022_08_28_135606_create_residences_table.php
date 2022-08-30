@@ -28,7 +28,9 @@ return new class extends Migration
             $table->integer('price');
             $table->integer('discount')->nullable();
             $table->text('long_desc_fa');
+            $table->text('short_desc_en');
             $table->text('long_desc_en');
+            $table->text('short_desc_fa');
             $table->string('thumbnail');
             $table->integer('special_offer')->nullable();
             $table->integer('status')->default(0);
