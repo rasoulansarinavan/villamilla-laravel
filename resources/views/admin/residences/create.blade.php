@@ -10,7 +10,7 @@
                     <div class="card">
                         <h5 class="card-header">افزودن محصول جدید</h5>
                         <div class="card-body">
-                            <form action="{{route('admin.residences.create')}}" enctype="multipart/form-data"
+                            <form action="{{route('admin.residences.store')}}" enctype="multipart/form-data"
                                   class="browser-default-validation" method="post">
                                 @csrf
                                 <div class="row">
@@ -146,15 +146,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="form-group">
-                                        <div class="custom-control-inline">
-                                            <div class="radio mr-1">
-                                                <input type="checkbox" name="special_offer" id="checkbox"
-                                                       style="position:absolute;bottom: 182px;right:12px;">
-                                                <label for="checkbox">پیشنهاد شگفت انگیز</label>
-                                            </div>
-                                        </div>
-                                    </div>
+
                                 </div>
                                 <div class="form-group">
                                     <label class="form-label" for="basic-default-name">عکس محصول</label>
@@ -171,6 +163,15 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary text-right">افزودن</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control-inline">
+                                            <div class="radio mr-1">
+                                                <input type="checkbox" name="special_offer" id="checkbox"
+                                                       style="position:absolute;bottom:47px;right:12px;">
+                                                <label for="checkbox">پیشنهاد شگفت انگیز</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
