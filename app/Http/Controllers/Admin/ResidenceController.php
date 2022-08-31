@@ -15,11 +15,14 @@ class ResidenceController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        //
+        $residences = Residence::query()->latest()->get();
+        return view('admin.residences.index', [
+            'residences' => $residences,
+        ]);
     }
 
     /**
