@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Environment;
 use App\Models\Residence;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Intervention\Image\Facades\Image;
 
 class ResidenceController extends Controller
@@ -20,8 +21,12 @@ class ResidenceController extends Controller
     public function index()
     {
         $residences = Residence::query()->latest()->get();
+        $categories=Category::query()->latest()->get();
+        $environments=Environment::query()->latest()->get();
         return view('admin.residences.index', [
             'residences' => $residences,
+            'categories'=>$categories,
+            'environments'=>$environments
         ]);
     }
 
@@ -104,11 +109,17 @@ class ResidenceController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param \App\Models\Residence $residence
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Residence $residence)
     {
-        //
+        $categories=Category::query()->latest()->get();
+        $environments=Environment::query()->latest()->get();
+        return view('admin.residences.edit', [
+            'residence' => $residence,
+            'categories'=>$categories,
+            'environments'=>$environments
+        ]);
     }
 
     /**
