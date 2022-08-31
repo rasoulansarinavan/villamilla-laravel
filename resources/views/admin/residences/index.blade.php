@@ -14,10 +14,10 @@
                         </div>
                     @endif
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">لیست انواع اقامتگاها</h4>
+                                    <h4 class="card-title">لیست اقامتگاها</h4>
                                 </div>
                                 <div class="card-content">
                                     <div class="card-body card-dashboard">
@@ -25,9 +25,12 @@
                                             <table class="table zero-configuration">
                                                 <thead>
                                                 <tr>
-                                                    <th>نوع اقامتگاه به فارسی</th>
-                                                    <th>نوع اقامتگاه به انگلیسی</th>
-                                                    {{--                                                    <th>محیط گردشگری</th>--}}
+                                                    <th> اقامتگاه به فارسی</th>
+                                                    <th> اقامتگاه به انگلیسی</th>
+                                                    <th>تصویر محصول</th>
+                                                    <th>قیمت برای هر شب</th>
+                                                    <th>محیط گردشگری</th>
+                                                    <th>نوع اقامتگاه</th>
                                                     <th>عملیات</th>
                                                 </tr>
                                                 </thead>
@@ -36,16 +39,26 @@
                                                     <tr>
                                                         <td>{{$residence->name_fa}}</td>
                                                         <td>{{$residence->name_en}}</td>
-                                                        {{--                                                        <td>--}}
-                                                        {{--                                                          {{$residence->environment->name_fa}}--}}
+                                                        <td>
+                                                            <img src="/images/residences/{{$residence->id}}/{{$residence->thumbnail}}" width="100" alt="">
+                                                        </td>
+                                                        <td>
+                                                             {{number_format($residence->price)}}تومان
+                                                        </td>
+                                                        <td>
+                                                            {{$residence->environment->name_fa}}
 
-                                                        {{--                                                        </td>--}}
+                                                        </td>
+                                                        <td>
+                                                            {{$residence->category->name_fa}}
+
+                                                        </td>
                                                         <td>
                                                             <a class="badge badge-primary"
-                                                               href="{{route('admin.categories.edit',$residence->id)}}">ویرایش</a>
-                                                            <form
-                                                                action="{{route('admin.categories.destroy',$residence->id)}}"
-                                                                method="post">
+                                                               href="{{route('admin.residences.edit',$residence->id)}}">ویرایش</a>
+                                                            <form id="delete"
+                                                                  action="{{route('admin.residences.destroy',$residence->id)}}"
+                                                                  method="post">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <button class="badge badge-danger">حذف</button>
@@ -57,69 +70,6 @@
                                                 </tfoot>
                                             </table>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h4 class="card-title">افزودن نوع اقامتگاه</h4>
-                                </div>
-                                <div class="card-content">
-                                    <div class="card-body">
-                                        <form class="form form-vertical" action="{{route('admin.categories.store')}}"
-                                              method="post" enctype="multipart/form-data">
-                                            @csrf
-                                            <div class="form-body">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <label for="first-name-vertical">نوع اقامتگاه به
-                                                                فارسی</label>
-                                                            <input type="text" id="first-name-vertical"
-                                                                   class="form-control" name="name_fa"
-                                                                   placeholder="">
-                                                            <span
-                                                                class="text-danger">@error('name_fa'){{$message}}@enderror</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-12">
-                                                        <div class="form-group">
-                                                            <label for="first-name-vertical">نوع اقامتگاه به
-                                                                انگلیسی</label>
-                                                            <input type="text" id="first-name-vertical"
-                                                                   class="form-control" name="name_en"
-                                                                   placeholder="">
-                                                            <span
-                                                                class="text-danger">@error('name_en'){{$message}}@enderror</span>
-                                                        </div>
-                                                    </div>
-                                                    {{--                                                    <div class="col-12">--}}
-                                                    {{--                                                        <div class="form-group">--}}
-                                                    {{--                                                            <label for="parent">نوع اقامتگاه</label>--}}
-                                                    {{--                                                            <select class="select2 form-control"--}}
-                                                    {{--                                                                    name="environment_id" id="environment_id">--}}
-                                                    {{--                                                                <option selected disabled value="">دسته والد را انتخاب--}}
-                                                    {{--                                                                    کنید--}}
-                                                    {{--                                                                </option>--}}
-                                                    {{--                                                                @foreach($environments as $environment)--}}
-                                                    {{--                                                                    <option--}}
-                                                    {{--                                                                        value="{{$environment->id}}">{{$environment->name_fa}}</option>--}}
-                                                    {{--                                                                @endforeach--}}
-                                                    {{--                                                            </select>--}}
-                                                    {{--                                                            <span--}}
-                                                    {{--                                                                class="text-danger">@error('name_en'){{$message}}@enderror</span>--}}
-                                                    {{--                                                        </div>--}}
-                                                    {{--                                                    </div>--}}
-                                                    <div class="col-12 d-flex justify-content-end">
-                                                        <button type="submit" class="btn btn-primary mr-1 mb-1">
-                                                            ثبت
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -143,5 +93,11 @@
     <!-- BEGIN: Page JS-->
     <script src="/admin/app-assets/js/scripts/datatables/datatable.js"></script>
     <!-- END: Page JS-->
-
+    <script>
+        $('#delete').submit(function (event) {
+            if (!confirm('در صورت تایید این اقامتگاه حذف میشود')) {
+                event.preventDefault();
+            }
+        })
+    </script>
 @endsection
