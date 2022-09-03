@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ResidenceStoreRequest;
 use App\Models\Category;
 use App\Models\Environment;
+use App\Models\Gallery;
 use App\Models\Residence;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -21,12 +22,12 @@ class ResidenceController extends Controller
     public function index()
     {
         $residences = Residence::query()->latest()->get();
-        $categories=Category::query()->latest()->get();
-        $environments=Environment::query()->latest()->get();
+        $categories = Category::query()->latest()->get();
+        $environments = Environment::query()->latest()->get();
         return view('admin.residences.index', [
             'residences' => $residences,
-            'categories'=>$categories,
-            'environments'=>$environments
+            'categories' => $categories,
+            'environments' => $environments
         ]);
     }
 
@@ -113,13 +114,65 @@ class ResidenceController extends Controller
      */
     public function edit(Residence $residence)
     {
-        $categories=Category::query()->latest()->get();
-        $environments=Environment::query()->latest()->get();
+        $categories = Category::query()->latest()->get();
+        $environments = Environment::query()->latest()->get();
         return view('admin.residences.edit', [
             'residence' => $residence,
-            'categories'=>$categories,
-            'environments'=>$environments
+            'categories' => $categories,
+            'environments' => $environments
         ]);
+    }
+
+    /**
+     * @param Residence $residence
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function gallery(Residence $residence)
+    {
+        $galleries = Gallery::query()->latest()->get();
+        return view('admin.residences.gallery', [
+            'galleries' => $galleries,
+            'residence' => $residence
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @param Residence $residence
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function galleryStore(Request $request, Residence $residence)
+    {
+        {
+            $name_en = $residence->name_en;
+            $residence_id = $residence->id;
+            $images = $request->file('multi_img');
+            foreach ($images as $img) {
+                $image_name = time() + rand(0, 1233) . '_' . $name_en . '.' . $img->extension();
+                \Intervention\Image\Facades\Image::make($img)->resize('115', '115')->save('images/residences/' . $residence_id . '/gallery/small/' . $image_name);
+                \Intervention\Image\Facades\Image::make($img)->resize('1200', '1200')->save('images/residences/' . $residence_id . '/gallery/large/' . $image_name);
+                Gallery::query()->create([
+                    'residence_id' => $residence->id,
+                    'image' => $image_name,
+                ]);
+            }
+            return redirect()->back();
+        }
+    }
+
+    /**
+     * @param Gallery $gallery
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function galleryDestroy(Gallery $gallery)
+
+    {
+        $residence_id = $gallery->residence_id;
+        $image_name = $gallery->image;
+        $gallery->delete();
+        unlink('images/residences/' . $residence_id . '/gallery/large/' . $image_name);
+        unlink('images/residences/' . $residence_id . '/gallery/small/' . $image_name);
+        return redirect()->back()->with('success', 'عکس مورد نظر حذف شد');
     }
 
     /**
@@ -138,10 +191,22 @@ class ResidenceController extends Controller
      * Remove the specified resource from storage.
      *
      * @param \App\Models\Residence $residence
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Residence $residence)
     {
-        //
+//
+//        $galleries = Gallery::query()->where('residence_id', $residence->id)->get();
+//
+//        foreach ($galleries as $gallery) {
+//            Gallery::query()->where('residence_id', $residence->id)->delete();
+//        }
+ //             rmdir('images/residences/' . $residence->id);
+//
+
+
+        File::deleteDirectory('images/residences/' . $residence->id);
+        $residence->delete();
+        return redirect()->back()->with('success', 'اقامتگاه با موفقیت حذف شد');
     }
 }
