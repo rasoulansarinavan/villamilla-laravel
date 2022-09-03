@@ -7,6 +7,7 @@ use App\Http\Requests\EnvironmentStoreRequest;
 use App\Http\Requests\EnvironmentUpdateRequest;
 use App\Models\Category;
 use App\Models\Environment;
+use Faker\Core\File;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -125,6 +126,7 @@ class EnvironmentController extends Controller
      */
     public function destroy(Environment $environment)
     {
+        \Illuminate\Support\Facades\File::delete('images/environments/' . $environment->image);
         $environment->delete();
         return redirect()->back()->with('success','محیط با موفقیت حذف شد');
     }
