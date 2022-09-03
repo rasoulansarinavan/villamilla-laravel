@@ -74,6 +74,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::get('/create', [ResidenceController::class, 'create'])->name('create');
             Route::post('/store', [ResidenceController::class, 'store'])->name('store');
             Route::get('/edit/{residence}', [ResidenceController::class, 'edit'])->name('edit');
+            Route::get('/gallery/{residence}', [ResidenceController::class, 'gallery'])->name('gallery');
+            Route::post('/galleryStore/{residence}', [ResidenceController::class, 'galleryStore'])->name('galleryStore');
+            Route::post('/galleryDestroy/{gallery}', [ResidenceController::class, 'galleryDestroy'])->name('galleryDestroy');
             Route::post('/update/{residence}', [ResidenceController::class, 'update'])->name('update');
             Route::delete('/destroy/{residence}', [ResidenceController::class, 'destroy'])->name('destroy');
         });
