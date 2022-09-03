@@ -31,6 +31,7 @@
                                                     <th>قیمت برای هر شب</th>
                                                     <th>محیط گردشگری</th>
                                                     <th>نوع اقامتگاه</th>
+                                                    <th>گالری</th>
                                                     <th>عملیات</th>
                                                 </tr>
                                                 </thead>
@@ -52,6 +53,9 @@
                                                         <td>
                                                             {{$residence->category->name_fa}}
 
+                                                        </td>
+                                                        <td>
+                                                            <a class="btn btn-sm btn-info" href="{{route('admin.residences.gallery',$residence->id)}}">گالری</a>
                                                         </td>
                                                         <td>
                                                             <a class="badge badge-primary"
