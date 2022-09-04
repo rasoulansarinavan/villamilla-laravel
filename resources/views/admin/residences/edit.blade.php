@@ -10,9 +10,10 @@
                     <div class="card">
                         <h5 class="card-header">آپدیت محصول</h5>
                         <div class="card-body">
-                            <form action="{{route('admin.residences.store')}}" enctype="multipart/form-data"
+                            <form action="{{route('admin.residences.update',$residence->id)}}" enctype="multipart/form-data"
                                   class="browser-default-validation" method="post">
                                 @csrf
+                                @method('PATCH')
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
