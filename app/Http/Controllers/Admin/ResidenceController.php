@@ -180,11 +180,54 @@ class ResidenceController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param \App\Models\Residence $residence
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Residence $residence)
     {
-        //
+        $name_en = $request->get('name_en');
+        $image = $request->file('thumbnail');
+
+        $old_image = $residence->thumbnail;
+
+
+        if ($request->hasFile('thumbnail')) {
+            unlink('images/residences/' . $residence->id . '/' . $old_image);
+            $image_extension = $image->extension();
+            $new_name = time() . '_' . $name_en . '.' . $image_extension;
+            Image::make($image)->resize('350', '350')->save('images/residences/' . $residence->id . '/' . $new_name);
+        } else {
+            $new_name = $old_image;
+        }
+
+        $special_offer = 0;
+        if ($request->get('special_offer') == 'on') {
+            $special_offer = 1;
+        }
+        $residence = Residence::query()->update([
+            'name_fa' => $request->get('name_fa'),
+            'slug_fa' => str_replace('', '_', $request->get('name_fa')),
+            'environment_id' => $request->get('environment_id'),
+            'wc_fa' => $request->get('wc_fa'),
+            'double_bed' => $request->get('double_bed'),
+            'capacity' => $request->get('capacity'),
+            'price' => $request->get('price'),
+            'long_desc_fa' => $request->get('long_desc_fa'),
+            'short_desc_fa' => $request->get('short_desc_fa'),
+            'name_en' => $request->get('name_en'),
+            'slug_en' => strtolower(str_replace('', '_', $request->get('name_en'))),
+            'category_id' => $request->get('category_id'),
+            'wc_en' => $request->get('wc_en'),
+            'single_bed' => $request->get('single_bed'),
+            'bath' => $request->get('bath'),
+            'discount' => $request->get('discount'),
+            'long_desc_en' => $request->get('long_desc_en'),
+            'short_desc_en' => $request->get('short_desc_en'),
+            'status' => 1,
+            'special_offer' => $special_offer,
+            'thumbnail' => $new_name
+        ]);
+
+        return redirect('admin.residences.index')->with('success', 'محصول با موفقیت افزوده شد');
     }
 
     /**
@@ -201,7 +244,7 @@ class ResidenceController extends Controller
 //        foreach ($galleries as $gallery) {
 //            Gallery::query()->where('residence_id', $residence->id)->delete();
 //        }
- //             rmdir('images/residences/' . $residence->id);
+        //             rmdir('images/residences/' . $residence->id);
 //
 
 
