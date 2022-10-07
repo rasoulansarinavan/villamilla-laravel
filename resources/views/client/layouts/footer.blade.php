@@ -1,236 +1,109 @@
-<!-- Footer
-    ============================================= -->
-<footer id="footer" class="dark" style="background-color: #222;">
+<footer class="footer accent">
     <div class="container">
-
-        <!-- Footer Widgets
-        ============================================= -->
-        <div class="footer-widgets-wrap">
-
-            <div class="row col-mb-50">
-                <div class="col-md-4">
-
-                    <div class="widget clearfix">
-
-                        <div class="row col-mb-30">
-                            <div class="col-lg-12">
-                                <div class="footer-big-contacts">
-                                    <span>Call Us:</span>
-                                    (1) 22 84551445
-                                </div>
-                            </div>
-
-                            <div class="col-lg-12">
-                                <div class="footer-big-contacts">
-                                    <span>Send an Enquiry:</span>
-                                    travel@canvas.com
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="widget subscribe-widget clearfix">
-                        <div class="row col-mb-30">
-                            <div class="col-lg-6">
-                                <a href="/client/assets/#" class="social-icon si-dark si-colored si-facebook mb-0" style="margin-right: 10px;">
-                                    <i class="icon-facebook"></i>
-                                    <i class="icon-facebook"></i>
-                                </a>
-                                <a href="/client/assets/#"><small style="display: block; margin-top: 3px;"><strong>Like us</strong><br>on Facebook</small></a>
-                            </div>
-                            <div class="col-lg-6">
-                                <a href="/client/assets/#" class="social-icon si-dark si-colored si-rss mb-0" style="margin-right: 10px;">
-                                    <i class="icon-rss"></i>
-                                    <i class="icon-rss"></i>
-                                </a>
-                                <a href="/client/assets/#"><small style="display: block; margin-top: 3px;"><strong>Subscribe</strong><br>to RSS Feeds</small></a>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-
-                    <div class="widget clearfix">
-                        <h4>Featured Packages</h4>
-
-                        <div class="posts-sm row col-mb-30" id="travel-package-list-footer">
-                            <div class="entry col-12">
-                                <div class="grid-inner row align-items-center g-0">
-                                    <div class="col-auto">
-                                        <div class="entry-image">
-                                            <a href="/client/assets/#"><img class="rounded-circle" src="/client/assets/images/magazine/small/1.jpg" alt="Image"></a>
-                                        </div>
-                                    </div>
-                                    <div class="col ps-3">
-                                        <div class="entry-title">
-                                            <h4><a href="/client/assets/#">7 Nights/8 Days Europe</a></h4>
-                                        </div>
-                                        <div class="entry-meta">
-                                            <ul>
-                                                <li><strong>$599</strong> onwards</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="entry col-12">
-                                <div class="grid-inner row align-items-center g-0">
-                                    <div class="col-auto">
-                                        <div class="entry-image">
-                                            <a href="/client/assets/#"><img class="rounded-circle" src="/client/assets/images/magazine/small/2.jpg" alt="Image"></a>
-                                        </div>
-                                    </div>
-                                    <div class="col ps-3">
-                                        <div class="entry-title">
-                                            <h4><a href="/client/assets/#">4 Nights/5 Days Thailand</a></h4>
-                                        </div>
-                                        <div class="entry-meta">
-                                            <ul>
-                                                <li><strong>$399</strong> onwards</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="entry col-12">
-                                <div class="grid-inner row align-items-center g-0">
-                                    <div class="col-auto">
-                                        <div class="entry-image">
-                                            <a href="/client/assets/#"><img class="rounded-circle" src="/client/assets/images/magazine/small/3.jpg" alt="Image"></a>
-                                        </div>
-                                    </div>
-                                    <div class="col ps-3">
-                                        <div class="entry-title">
-                                            <h4><a href="/client/assets/#">11 Nights/12 Days America</a></h4>
-                                        </div>
-                                        <div class="entry-meta">
-                                            <ul>
-                                                <li><strong>$1299</strong> onwards</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-md-4">
-
-                    <div class="widget widget_links clearfix">
-
-                        <h4>Popular Destinations</h4>
-
-                        <div class="row col-mb-30">
-                            <div class="col-6">
-                                <ul>
-                                    <li><a href="/client/assets/#">Thailand</a></li>
-                                    <li><a href="/client/assets/#">Indonesia</a></li>
-                                    <li><a href="/client/assets/#">Italy</a></li>
-                                    <li><a href="/client/assets/#">Spain</a></li>
-                                </ul>
-                            </div>
-                            <div class="col-6">
-                                <ul>
-                                    <li><a href="/client/assets/#">India</a></li>
-                                    <li><a href="/client/assets/#">France</a></li>
-                                    <li><a href="/client/assets/#">Philippines</a></li>
-                                    <li><a href="/client/assets/#">New Zealand</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="widget subscribe-widget clearfix">
-                        <h5>Get Latest <strong>Offers</strong> &amp; <strong>Coupons</strong> by Email:</h5>
-                        <div class="widget-subscribe-form-result"></div>
-                        <form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="mb-0">
-                            <div class="input-group mx-auto">
-                                <div class="input-group-text"><i class="icon-email2"></i></div>
-                                <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control required email" placeholder="Enter your Email">
-                                <button class="btn btn-danger bg-color" type="submit">Subscribe</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
+        <div class="footer_main d-sm-flex flex-wrap flex-lg-nowrap justify-content-between">
+            <div class="footer_main-block footer_main-block--about col-sm-7 col-lg-auto d-flex flex-column">
+                <a class="brand d-flex align-items-center" href="/client/assets/index.html">
+                            <span class="brand_logo theme-element">
+                                <svg
+                                    id="brandFooter"
+                                    width="22"
+                                    height="23"
+                                    viewBox="0 0 22 23"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M7.03198 3.80281V7.07652L3.86083 9.75137L0.689673 12.4263L0.667474 6.56503C0.655304 3.34138 0.663875 0.654206 0.686587 0.593579C0.71907 0.506918 1.4043 0.488223 3.87994 0.506219L7.03198 0.529106V3.80281ZM21.645 4.36419V5.88433L17.0383 9.76316C14.5046 11.8966 11.2263 14.6552 9.75318 15.8934L7.07484 18.145V20.3225V22.5H3.85988H0.64502L0.667303 18.768L0.689673 15.036L2.56785 13.4609C3.60088 12.5946 6.85989 9.85244 9.81009 7.36726L15.1741 2.84867L18.4096 2.8464L21.645 2.84413V4.36419ZM21.645 15.5549V22.5H18.431H15.217V18.2638V14.0274L15.4805 13.7882C15.8061 13.4924 21.5939 8.61606 21.6236 8.61248C21.6353 8.61099 21.645 11.7351 21.645 15.5549Z"
+                                        fill="currentColor"
+                                    />
+                                </svg>
+                            </span>
+                    <span class="brand_name">Hosteller</span>
+                </a>
+                <p class="footer_main-block_text">
+                    Ut tellus elementum sagittis vitae et leo duis ut. Sit amet consectetur adipiscing elit duis. Ultrices gravida
+                    dictum fusce ut placer orci nulla pellentesque
+                </p>
             </div>
-
-        </div><!-- .footer-widgets-wrap end -->
-
-    </div>
-
-    <!-- Copyrights
-    ============================================= -->
-    <div id="copyrights">
-        <div class="container">
-
-            <div class="row col-mb-30">
-
-                <div class="col-md-6 text-center text-md-start">
-                    Copyrights &copy; 2020 All Rights Reserved by Canvas Inc.<br>
-                    <div class="copyright-links"><a href="/client/assets/#">Terms of Use</a> / <a href="/client/assets/#">Privacy Policy</a></div>
-                </div>
-
-                <div class="col-md-6 text-center text-md-end">
-                    <div class="d-flex justify-content-center justify-content-md-end">
-                        <a href="/client/assets/#" class="social-icon si-small si-borderless si-facebook">
-                            <i class="icon-facebook"></i>
+            <div class="footer_main-block footer_main-block--nav col-sm-6 col-lg-auto">
+                <h4 class="footer_main-block_header">Quick links</h4>
+                <ul class="footer_main-block_nav d-flex flex-lg-column">
+                    <li class="list-item">
+                        <a class="link underlined underlined--white nav-item" data-page="home" href="/client/assets/index.html">Home</a>
+                    </li>
+                    <li class="list-item">
+                        <a class="link underlined underlined--white nav-item" data-page="about" href="/client/assets/about.html">About</a>
+                    </li>
+                    <li class="list-item">
+                        <a class="link underlined underlined--white nav-item" data-page="rooms" href="/client/assets/rooms.html">Rooms</a>
+                    </li>
+                    <li class="list-item">
+                        <a class="link underlined underlined--white nav-item" data-page="news" href="/client/assets/news.html">News</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_main-block footer_main-block--contacts col-sm-5 col-lg-auto">
+                <h4 class="footer_main-block_header">Contact Us</h4>
+                <ul class="footer_main-block_contacts">
+                    <li class="list-item d-flex">
+                        <i class="icon-location icon"></i>
+                        <p class="wrapper">
+                            <span class="linebreak"> 54826 Fadel Circles </span>
+                            <span class="linebreak"> Darrylstad, AZ 90995 </span>
+                        </p>
+                    </li>
+                    <li class="list-item d-flex">
+                                <span class="icon-call icon">
+                                    <svg width="28" height="29" viewBox="0 0 28 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M26.9609 19.75L21 17.1797C20.7812 17.125 20.5625 17.0703 20.3438 17.0703C19.7969 17.0703 19.3047 17.2891 19.0312 17.6719L16.625 20.625C12.7969 18.7656 9.73438 15.7031 7.875 11.875L10.8281 9.46875C11.2109 9.19531 11.4297 8.70312 11.4297 8.15625C11.4297 7.9375 11.375 7.71875 11.3203 7.5L8.75 1.53906C8.47656 0.9375 7.875 0.5 7.21875 0.5C7.05469 0.5 6.94531 0.554688 6.83594 0.554688L1.3125 1.86719C0.546875 2.03125 0 2.6875 0 3.50781C0 17.3438 11.2109 28.5 24.9922 28.5C25.8125 28.5 26.4688 27.9531 26.6875 27.1875L27.9453 21.6641C27.9453 21.5547 27.9453 21.4453 27.9453 21.2812C27.9453 20.625 27.5625 20.0234 26.9609 19.75ZM24.9375 26.75C12.1406 26.75 1.75 16.3594 1.75 3.5625L7.16406 2.30469L9.67969 8.15625L5.6875 11.4375C8.36719 17.0703 11.4297 20.1328 17.1172 22.8125L20.3438 18.8203L26.1953 21.3359L24.9375 26.75Z"
+                                            fill="currentColor"
+                                        />
+                                    </svg>
+                                </span>
+                        <p class="wrapper d-flex flex-column">
+                            <a class="link" href="/client/assets/tel:+1234567890">(329) 580-7077</a>
+                            <a class="link" href="/client/assets/tel:+1234567890">(650) 382-5020</a>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer_main-block footer_main-block--follow col-sm-5 col-lg-auto d-flex flex-column">
+                <h4 class="footer_main-block_header">Follow Us</h4>
+                <p class="footer_main-block_text">Venenatis urna cursus eget nunc scelerisque</p>
+                <ul class="socials d-flex align-items-center">
+                    <li class="list-item">
+                        <a class="link" href="/client/assets/">
                             <i class="icon-facebook"></i>
                         </a>
-
-                        <a href="/client/assets/#" class="social-icon si-small si-borderless si-twitter">
+                    </li>
+                    <li class="list-item">
+                        <a class="link" href="/client/assets/">
+                            <i class="icon-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a class="link" href="/client/assets/">
                             <i class="icon-twitter"></i>
-                            <i class="icon-twitter"></i>
                         </a>
-
-                        <a href="/client/assets/#" class="social-icon si-small si-borderless si-gplus">
-                            <i class="icon-gplus"></i>
-                            <i class="icon-gplus"></i>
+                    </li>
+                    <li class="list-item">
+                        <a class="link" href="/client/assets/">
+                            <i class="icon-whatsapp"></i>
                         </a>
-
-                        <a href="/client/assets/#" class="social-icon si-small si-borderless si-pinterest">
-                            <i class="icon-pinterest"></i>
-                            <i class="icon-pinterest"></i>
-                        </a>
-
-                        <a href="/client/assets/#" class="social-icon si-small si-borderless si-vimeo">
-                            <i class="icon-vimeo"></i>
-                            <i class="icon-vimeo"></i>
-                        </a>
-
-                        <a href="/client/assets/#" class="social-icon si-small si-borderless si-github">
-                            <i class="icon-github"></i>
-                            <i class="icon-github"></i>
-                        </a>
-
-                        <a href="/client/assets/#" class="social-icon si-small si-borderless si-yahoo">
-                            <i class="icon-yahoo"></i>
-                            <i class="icon-yahoo"></i>
-                        </a>
-
-                        <a href="/client/assets/#" class="social-icon si-small si-borderless si-linkedin">
-                            <i class="icon-linkedin"></i>
-                            <i class="icon-linkedin"></i>
-                        </a>
-                    </div>
-
-                    <div class="clear"></div>
-
-                    <i class="icon-envelope2"></i> info@canvas.com <span class="middot">&middot;</span> <i class="icon-headphones"></i> +1-11-6541-6369 <span class="middot">&middot;</span> <i class="icon-skype2"></i> CanvasOnSkype
-                </div>
-
+                    </li>
+                </ul>
             </div>
-
         </div>
-    </div><!-- #copyrights end -->
+    </div>
+    <div class="footer_copyright">
+        <div class="container">
+            <p class="footer_copyright-text">
+                <span class="linebreak">Merkulove &copy; Hosteller Template</span>
+                <span class="linebreak">All rights reserved Copyrights 2021</span>
+            </p>
+        </div>
+    </div>
 </footer>
-
-<!-- #footer end -->
