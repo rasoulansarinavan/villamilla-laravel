@@ -11,4 +11,8 @@ class Gallery extends Model
 
     protected $guarded = [];
 
+    public function residence()
+    {
+        return $this->belongsTo(Residence::class,'residence_id');
+    }
 }

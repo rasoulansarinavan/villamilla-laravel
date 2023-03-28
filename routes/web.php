@@ -41,23 +41,24 @@ Route::prefix('admin')->name('admin.')->group(function () {
 //        })->name('home');
 
     Route::get('/index', Index::class)->name('index');
-    Route::prefix('environments')->name('environments.')->group(function () {
 
+    Route::prefix('environments')->name('environments.')->group(function () {
         Route::get('/index', App\Http\Livewire\Admin\Environments\Index::class)->name('index');
         Route::get('/edit/{id}', App\Http\Livewire\Admin\Environments\Edit::class)->name('edit');
     });
-    Route::prefix('categories')->name('categories.')->group(function () {
 
+    Route::prefix('categories')->name('categories.')->group(function () {
         Route::get('/index', \App\Http\Livewire\Admin\Categories\index::class)->name('index');
         Route::get('/edit/{id}', Edit::class)->name('edit');
     });
-    Route::prefix('residences')->name('residences.')->group(function () {
 
+    Route::prefix('residences')->name('residences.')->group(function () {
         Route::get('/index', \App\Http\Livewire\Admin\Residences\index::class)->name('index');
         Route::get('/gallery/{id}', Gallery::class)->name('gallery');
         Route::get('/edit/{id}', \App\Http\Livewire\Admin\Residences\Edit::class)->name('edit');
         Route::get('/create', Create::class)->name('create');
     });
+
     Route::middleware(['guest:admin', 'PreventBackHistory'])->group(function () {
         Route::get('/login', function () {
             return view('admin.login');

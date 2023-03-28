@@ -26,6 +26,15 @@ class LoginController extends Controller
      *
      * @var string
      */
+
+//    protected function authenticated(Request $request, $user)
+//    {
+//        $path = $user->isAdmin ? '/dashboard' : '/';
+//
+//        return redirect($path);
+//    }
+
+
     protected $redirectTo = RouteServiceProvider::HOME;
 
     /**

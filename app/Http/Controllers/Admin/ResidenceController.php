@@ -98,7 +98,7 @@ class ResidenceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Residence $residence
+     * @param Residence $residence
      * @return \Illuminate\Http\Response
      */
     public function show(Residence $residence)
@@ -109,7 +109,7 @@ class ResidenceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Residence $residence
+     * @param Residence $residence
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Residence $residence)
@@ -121,6 +121,26 @@ class ResidenceController extends Controller
             'categories' => $categories,
             'environments' => $environments
         ]);
+    }
+
+    /**
+     * @param Residence $residence
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function active(Residence $residence)
+    {
+        $residence->update(['status' => 1]);
+        return redirect()->back();
+    }
+
+    /**
+     * @param Residence $residence
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function inactive(Residence $residence)
+    {
+        $residence->update(['status' => 0]);
+        return redirect()->back();
     }
 
     /**
@@ -179,7 +199,7 @@ class ResidenceController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\Residence $residence
+     * @param Residence $residence
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(Request $request, Residence $residence)
@@ -233,7 +253,7 @@ class ResidenceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Residence $residence
+     * @param Residence $residence
      * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Residence $residence)

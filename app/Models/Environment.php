@@ -11,8 +11,5 @@ class Environment extends Model
 
     protected $guarded = [];
 
-    public function parent()
-    {
-        return $this->hasMany(Category::class,'environment_id');
-    }
+
 }
